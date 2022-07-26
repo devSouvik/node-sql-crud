@@ -1,0 +1,29 @@
+GET http://localhost:3000/getitems
+
+###
+POST  http://localhost:3000/additem
+content-type: application/json
+
+{
+ "Id": 1,
+    "Title": "Books",
+    "Quantity": 20,
+    "Message": "SHOULD BE GIFT WRAPPED",
+    "City": "JAMSHEDPUR"
+  }
+
+###
+DELETE http://localhost:3000/deleteitem/4
+
+###
+PUT http://localhost:3000/edititem/3
+content-type: application/json
+
+{
+        "Id": 3,
+        "Title": "Smart Television",
+        "Quantity": 10,
+        "Message": "Sony Bravia",
+        "City": "Bangalore"
+}
+
