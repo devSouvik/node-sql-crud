@@ -4,31 +4,19 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-const {
-  edititem,
-  additem,
-  deleteitem,
-  getItems,
-} = require("./dboperations.js");
-
-// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // to use json in the application
 app.use(bodyParser.json());
 
-// == Read function
-app.get("/getitems", getItems);
+const userRoute = require("./routes/orders");
 
-// == add  function
-app.post("/additem", additem);
-
-// == update function
-app.put("/edititem/:id", edititem);
-
-// == delete function
-app.delete("/deleteitem/:id", deleteitem);
+app.use("/", userRoute);
 
 PORT = 3000;
 app.listen(PORT, function () {
   console.log(`Server is running at ${PORT}`);
 });
+
+// seperation of concern
+// archie
